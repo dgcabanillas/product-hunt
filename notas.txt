@@ -1,0 +1,59 @@
+npx create-next-app product-hunt-next
+npm i @emotion/core @emotion/styled babel-plugin-emotion @emotion/babel-preset-css-prop
+
+write the config for styled in a file ".babelrc" ( see that file )
+
+npm install --save normalize.css
+
+-- create a file 'jsconfig.json' and write
+{
+    "compilerOptions": {
+      "baseUrl": "."
+    }
+}
+-- to configure the absolute paths in nextjs
+
+npm i firebase
+npm i firebase-admin
+
+/* 
+  con respecto a firebase:
+    en la página de firebase está esta configuracion: "firebase.initializeApp(firebaseConfig);"
+    realmente se usa "app.initializeApp( firebaseConfig );" , app se importa con "import app from 'firebase/app';"
+*/
+
+// para subir archivos a firestore
+npm i react-firebase-file-uploader
+
+// libreria para formatear fecha
+npm i date-fns
+
+// añadimos un scrip en "packeges.json"
+"scripts": {
+    "export": "next export"     
+}
+
+// ejecutamos "npm run export"
+
+/* DEPLOYMENT EN FIREBASE */
+if( NoTenemosInstaladoFirebase ) {
+    npm install -g firebase-tools
+    firebase login
+}
+firebase init hosting
+seleccionamos nuestro proyecto en firebase
+>> ? What do you want to use as your public directory? out
+>> Configure as a single-page app (rewrite all urls to /index.html)? (y/N) N
+
+// Una vez acabado, ejecutamos
+firebase deploy
+-- https://console.firebase.google.com/project/product-hunt-43b59/overview
+-- https://product-hunt-43b59.web.app
+
+
+/* DEPLOYMENT EN ZEIT */
+if( NoTenemosInstaladoNow ) {
+    npm i -g now
+    now login
+}
+now out/
