@@ -1,7 +1,18 @@
 npx create-next-app product-hunt-next
 npm i @emotion/core @emotion/styled babel-plugin-emotion @emotion/babel-preset-css-prop
 
-write the config for styled in a file ".babelrc" ( see that file )
+// write the config for styled in a file ".babelrc" ( see that file )
+{
+    "presets": [
+        "next/babel",
+        "@emotion/babel-preset-css-prop"
+    ],
+    "plugins": [
+        [
+            "emotion"
+        ]
+    ]
+}
 
 npm install --save normalize.css
 
